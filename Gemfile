@@ -4,7 +4,6 @@ gem 'rails', '3.2.14'
 gem 'thin'
 
 # gem 'mysql2'
-gem 'sqlite3'
 gem 'devise'
 
 gem 'jquery-rails'
@@ -28,6 +27,7 @@ group :debug do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'fuubar'
   gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
   gem 'guard-jasmine'
@@ -37,6 +37,10 @@ group :development, :test do
   gem 'growl-rspec', :require => RUBY_PLATFORM.include?('darwin') && 'growl-rspec'
   gem 'selenium-webdriver'
   gem 'rspec-rails'
+end
+
+group :production do
+  gem 'pg'
 end
 
 group :test do
